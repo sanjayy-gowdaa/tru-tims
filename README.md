@@ -42,13 +42,6 @@ If you like what you see here, and want to help support the work being done, you
 + Refactor Codebase
 + Help Write Documentation
 
-### Sponsors
-Just a few who have made the project possible.
-<br />
-<a href="https://www.browserstack.com"><img src="https://files.trudesk.io/browserstack-logo-600x315.png" width="115" /></a>
-
-Trudesk is tested with confidence using [BrowserStack](https://browserstack.com).
-
 ### License
 
     Copyright 2014-2023 Trudesk, Inc.
