@@ -284,18 +284,18 @@ class Sidebar extends React.Component {
                     href='/settings/permissions'
                     active={activeSubItem === 'settings-permissions'}
                   />
-                  <SubmenuItem
+                  {/* <SubmenuItem
                     text='Mailer'
                     icon='email'
                     href='/settings/mailer'
                     active={activeSubItem === 'settings-mailer'}
-                  />
-                  <SubmenuItem
+                  /> */}
+                  {/* <SubmenuItem
                     href={'/settings/elasticsearch'}
                     text={'Elasticsearch'}
                     icon={'search'}
                     active={activeSubItem === 'settings-elasticsearch'}
-                  />
+                  /> */}
                   <SubmenuItem
                     text='Backup/Restore'
                     icon='archive'

@@ -118,20 +118,20 @@ class SettingsContainer extends React.Component {
                   this.onMenuItemClick(e, 'tickets')
                 }}
               />
-              <MenuItem
+              {/* <MenuItem
                 title='Mailer'
                 active={this.state.activeCategory === 'settings-mailer'}
                 onClick={e => {
                   this.onMenuItemClick(e, 'mailer')
                 }}
-              />
-              <MenuItem
+              /> */}
+              {/* <MenuItem
                 title={'Elasticsearch'}
                 active={this.state.activeCategory === 'settings-elasticsearch'}
                 onClick={e => {
                   this.onMenuItemClick(e, 'elasticsearch')
                 }}
-              />
+              /> */}
               <MenuItem
                 title='Backup/Restore'
                 active={this.state.activeCategory === 'settings-backup'}
@@ -168,8 +168,8 @@ class SettingsContainer extends React.Component {
               <AppearanceSettings active={this.state.activeCategory === 'settings-appearance'} />
               <PermissionsSettingsContainer active={this.state.activeCategory === 'settings-permissions'} />
               <TicketsSettings active={this.state.activeCategory === 'settings-tickets'} />
-              <MailerSettingsContainer active={this.state.activeCategory === 'settings-mailer'} />
-              <ElasticsearchSettingsContainer active={this.state.activeCategory === 'settings-elasticsearch'} />
+              {/* <MailerSettingsContainer active={this.state.activeCategory === 'settings-mailer'} /> */}
+              {/* <ElasticsearchSettingsContainer active={this.state.activeCategory === 'settings-elasticsearch'} /> */}
               <BackupRestoreSettingsContainer active={this.state.activeCategory === 'settings-backup'} />
               <ServerSettingsController active={this.state.activeCategory === 'settings-server'} />
               <LegalSettingsContainer active={this.state.activeCategory === 'settings-legal'} />
