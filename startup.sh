@@ -1,4 +1,4 @@
-#!/bin/bash
+﻿#!/bin/bash
 
 if [ ! -d /usr/src/trudesk/public/uploads/users ]; then
     echo "Creating Directory..."
