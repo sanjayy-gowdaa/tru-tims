@@ -413,7 +413,7 @@ accountsApi.generateMFA = async (req, res) => {
 
     if (!dbUser.hasL2Auth) {
       const key = await dbUser.generateL2Auth()
-      const uri = `otpauth://totp/Trudesk:${dbUser.username}-${req.hostname}?secret=${key}&issuer=Trudesk`
+      const uri = `otpauth://totp/Keptel TIMS:${dbUser.username}-${req.hostname}?secret=${key}&issuer=Keptel TIMS`
 
       return apiUtil.sendApiSuccess(res, { key, uri })
     } else {
