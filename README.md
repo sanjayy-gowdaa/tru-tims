@@ -1,50 +1,82 @@
 <h1 align="center">
-<a href="http://trudesk.io"><img src="http://trudesk.io/TD_Black.png" width="500" /></a>
-<br />Community Edition
+<img src="public/img/defaultLogoLight.png" width="400" />
+<br />Keptel TIMS
 </h1>
 <p align="center">
-<a href="https://app.codacy.com/gh/polonel/trudesk/dashboard"><img alt="Codacy grade" src="https://img.shields.io/codacy/grade/3228c30aa1d14530ba25a04948985079?style=flat-square"></a>
-<a href="https://standardjs.com"><img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square" /></a>
-<a href="https://app.circleci.com/pipelines/github/polonel/trudesk"><img src="https://img.shields.io/circleci/token/ad7d2d066a75685a15c8e2fd08bd75e53b18fbb7/project/github/polonel/trudesk/master.svg?style=flat-square" /></a>
-<a href="https://forum.trudesk.io"><img src="https://img.shields.io/discourse/https/forum.trudesk.io/topics.svg?style=flat-square" /></a>
-<a title="Crowdin" target="_blank" href="https://crowdin.com/project/trudesk"><img src="https://d322cqt584bo4o.cloudfront.net/trudesk/localized.svg?style=flat-square"></a>
-<a href="https://github.com/polonel/trudesk/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-APACHE%202-green.svg?style=flat-square" /></a>
-<a href="https://github.com/polonel/trudesk/releases"><img src="https://img.shields.io/github/release/polonel/trudesk.svg?style=flat-square" /></a>
-<a href="https://docs.trudesk.io/v1.2"><img src="https://img.shields.io/badge/documentation-click%20to%20read-blue.svg?style=flat-square" /></a>
+<a href="https://github.com/sanjayy-gowdaa/tru-tims"><img src="https://img.shields.io/badge/license-APACHE%202-green.svg?style=flat-square" /></a>
+<a href="https://github.com/sanjayy-gowdaa/tru-tims/releases"><img src="https://img.shields.io/badge/version-1.0.0-blue.svg?style=flat-square" /></a>
 <br />
-<sub>© 2014-2023, Trudesk, Inc. (<b><a href="https://trudesk.io">@trudesk</a></b>).</sub>
+<sub>© 2025 Keptel. Based on Trudesk by Chris Brame.</sub>
 </p>
 <br />
 
-### Open Source Help Desk - Simply Organized.
-Quickly resolve issues & task with an easy-to-use solution. Built with one goal in mind, to keep work loads organized and simple. **This is the source for Trudesk Community Edition. For the more comprehensive, cloud-hosted version, please see Trudesk Cloud at <a href="http://trudesk.io">Trudesk.io</a>.**
+### Enterprise Ticket & Issue Management System
 
-<p align="center">
-    <img src="https://trudesk.io/images/hero-td-right.png" />
-</p>
+**Keptel TIMS** is an enterprise-grade, web-based platform designed to streamline internal support operations across IT, HR, Facilities, and other business units. It provides a centralized system for ticket creation, assignment, tracking, and reporting, built to improve service efficiency and transparency within organizations.
 
-#### Deploy Trudesk Anywhere
-**Trudesk** is built with <a href="https://nodejs.org">nodejs</a> and <a href="https://mongodb.org">mongodb</a> and can run on any cloud provider, docker, bare-metal, or even a raspberry pi.
-Take it for a spin on Ubuntu 20.04 with a one liner - <br />`curl -L -s https://storage.trudesk.io/install/ubuntu-1.2.sh | sudo bash`
+#### Key Features
+- 🎫 Centralized ticket management
+- 👥 Multi-department support (IT, HR, Facilities)
+- 📊 Advanced analytics and reporting
+- 🔐 Two-factor authentication (2FA)
+- 📧 Email integration (SMTP/IMAP)
+- 🔍 Elasticsearch-powered search
+- 📱 Responsive design
+- 🔔 Real-time notifications
 
 #### Requirements
-- NodeJS 16+
-- MongoDB 5.0+
-- Elasticsearch 8 (optional to enable search)
+- Docker & Docker Compose (Recommended)
+- **OR** Manual Setup:
+  - Node.js 16+
+  - MongoDB 5.0+
+  - Elasticsearch 8 (optional)
 
-### Documentation
-Online documentation: [https://docs.trudesk.io/v1.2](https://docs.trudesk.io/v1.2)
+### Quick Start with Docker
+
+```bash
+# Clone the repository
+git clone https://github.com/sanjayy-gowdaa/tru-tims.git
+cd tru-tims
+
+# Start the application
+docker-compose up -d
+
+# Access at http://localhost:8118
+```
+
+### Manual Installation
+
+```bash
+# Install dependencies
+npm install --legacy-peer-deps
+
+# Build the application
+npm run build
+
+# Start the application
+npm start
+```
 
 ### Contributing
-If you like what you see here, and want to help support the work being done, you could:
-+ Report Bugs
-+ Request/Implement Features
-+ Refactor Codebase
-+ Help Write Documentation
+We welcome contributions! You can help by:
++ Reporting bugs
++ Requesting features
++ Submitting pull requests
++ Improving documentation
+
+### Open-Source Attribution
+
+This project includes modified components from the open-source project **Trudesk**.
+
+Original software developed by:
+- **Trudesk, Inc.** (Chris Brame)
+- Copyright © 2014-2022 Trudesk, Inc.
+- Licensed under Apache License 2.0
+- Source: https://github.com/polonel/trudesk
 
 ### License
 
-    Copyright 2014-2023 Trudesk, Inc.
+    Copyright © 2025 Keptel
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -57,3 +89,7 @@ If you like what you see here, and want to help support the work being done, you
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+    
+---
+
+**Keptel TIMS** - Enhancing collaboration, ensuring SLA compliance, and providing detailed analytics for performance optimization.
