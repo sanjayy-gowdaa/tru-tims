@@ -19,9 +19,6 @@
 - 👥 Multi-department support (IT, HR, Facilities)
 - 📊 Advanced analytics and reporting
 - 🔐 Two-factor authentication (2FA)
-- 📧 Email integration (SMTP/IMAP)
-- 🔍 Elasticsearch-powered search
-- 📱 Responsive design
 - 🔔 Real-time notifications
 
 #### Requirements
@@ -44,17 +41,19 @@ docker-compose up -d
 # Access at http://localhost:8118
 ```
 
-### Manual Installation
+### Troubleshooting
+
+If the application doesn't start properly, try rebuilding:
 
 ```bash
-# Install dependencies
-npm install --legacy-peer-deps
+# Stop and remove containers
+docker-compose down
 
-# Build the application
-npm run build
+# Rebuild and start
+docker-compose up -d --build
 
-# Start the application
-npm start
+# View logs
+docker-compose logs -f trudesk
 ```
 
 ### Contributing
