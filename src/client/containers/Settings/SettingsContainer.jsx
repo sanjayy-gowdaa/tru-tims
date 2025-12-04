@@ -118,13 +118,13 @@ class SettingsContainer extends React.Component {
                   this.onMenuItemClick(e, 'tickets')
                 }}
               />
-              {/* <MenuItem
+              <MenuItem
                 title='Mailer'
                 active={this.state.activeCategory === 'settings-mailer'}
                 onClick={e => {
                   this.onMenuItemClick(e, 'mailer')
                 }}
-              /> */}
+              />
               {/* <MenuItem
                 title={'Elasticsearch'}
                 active={this.state.activeCategory === 'settings-elasticsearch'}
@@ -168,7 +168,7 @@ class SettingsContainer extends React.Component {
               <AppearanceSettings active={this.state.activeCategory === 'settings-appearance'} />
               <PermissionsSettingsContainer active={this.state.activeCategory === 'settings-permissions'} />
               <TicketsSettings active={this.state.activeCategory === 'settings-tickets'} />
-              {/* <MailerSettingsContainer active={this.state.activeCategory === 'settings-mailer'} /> */}
+              <MailerSettingsContainer active={this.state.activeCategory === 'settings-mailer'} />
               {/* <ElasticsearchSettingsContainer active={this.state.activeCategory === 'settings-elasticsearch'} /> */}
               <BackupRestoreSettingsContainer active={this.state.activeCategory === 'settings-backup'} />
               <ServerSettingsController active={this.state.activeCategory === 'settings-server'} />
