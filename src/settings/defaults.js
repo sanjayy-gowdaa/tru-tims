@@ -618,6 +618,13 @@ function mailTemplates (callback) {
           if (!templates || templates.length < 1) {
             return templateSchema.create(newTicket, done)
           }
+          const stringified = JSON.stringify(templates.data || {})
+          if (stringified.indexOf('trudesk.io/uploads/default') !== -1) {
+            templates.data = newTicket.data
+            templates.subject = newTicket.subject
+            templates.markModified('data')
+            return templates.save(done)
+          }
 
           return done()
         })
@@ -627,6 +634,13 @@ function mailTemplates (callback) {
           if (err) return done(err)
           if (!templates || templates.length < 1) {
             return templateSchema.create(passwordReset, done)
+          }
+          const stringified = JSON.stringify(templates.data || {})
+          if (stringified.indexOf('trudesk.io/uploads/default') !== -1) {
+            templates.data = passwordReset.data
+            templates.subject = passwordReset.subject
+            templates.markModified('data')
+            return templates.save(done)
           }
 
           return done()

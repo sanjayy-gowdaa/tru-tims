@@ -20,6 +20,7 @@ const winston = require('winston')
 const pkg = require('../../package')
 const xss = require('xss')
 const settingsUtil = require('../settings/settingsUtil')
+const { stripLegacyLogo } = require('../helpers/mailTemplateSanitizer')
 const RateLimiterMemory = require('rate-limiter-flexible').RateLimiterMemory
 
 const limiterSlowBruteByIP = new RateLimiterMemory({
@@ -356,7 +357,8 @@ mainController.forgotPass = function (req, res) {
                       if (err) return reject(err)
                       if (!template) return reject(new Error('Invalid Template'))
                       const html = global.Handlebars.compile(template.data['gjs-fullHtml'])(locals)
-                      email.juiceResources(html).then(resolve)
+                      const cleaned = stripLegacyLogo(html)
+                      email.juiceResources(cleaned).then(resolve)
                     })
                   })
                 }
@@ -393,10 +395,11 @@ mainController.forgotPass = function (req, res) {
           email
             .render('password-reset', data)
             .then(function (html) {
+              const cleaned = stripLegacyLogo(html)
               const mailOptions = {
                 to: savedUser.email,
                 subject: subject,
-                html: html,
+                html: cleaned,
                 generateTextFromHTML: true
               }
 
