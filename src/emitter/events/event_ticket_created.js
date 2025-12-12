@@ -22,6 +22,7 @@ const Department = require('../../models/department')
 const Notification = require('../../models/notification')
 const Template = require('../../models/template')
 const Mailer = require('../../mailer')
+const { stripLegacyLogo } = require('../../helpers/mailTemplateSanitizer')
 
 const Email = require('email-templates')
 const templateDir = path.resolve(__dirname, '../..', 'mailer', 'templates')
@@ -105,7 +106,8 @@ const sendMail = async (ticket, emails, baseUrl, betaEnabled) => {
               const template = await Template.findOne({ name: view })
               if (!template) return reject(new Error('Invalid Template'))
               const html = global.Handlebars.compile(template.data['gjs-fullHtml'])(locals)
-              const results = await email.juiceResources(html)
+              const cleaned = stripLegacyLogo(html)
+              const results = await email.juiceResources(cleaned)
               return resolve(results)
             } catch (e) {
               return reject(e)
@@ -125,29 +127,26 @@ const sendMail = async (ticket, emails, baseUrl, betaEnabled) => {
     })
   }
 
-  const template = await Template.findOne({ name: 'new-ticket' })
-  if (template) {
-    const ticketJSON = ticket.toJSON()
-    const context = { base_url: baseUrl, ticket: ticketJSON }
+  // Always use file-based templates (no database template override)
+  const ticketJSON = ticket.toJSON()
+  const context = { base_url: baseUrl, ticket: ticketJSON }
+  const rendered = await email.render('new-ticket', context)
+  const html = stripLegacyLogo(rendered)
+  const mailOptions = {
+    to: emails.join(),
+    subject: `Ticket #${ticket.uid} Created`,
+    html,
+    generateTextFromHTML: true
+  }
 
-    const html = await email.render('new-ticket', context)
-    const subjectParsed = global.Handlebars.compile(template.subject)(context)
-    const mailOptions = {
-      to: emails.join(),
-      subject: subjectParsed,
-      html,
-      generateTextFromHTML: true
+  Mailer.sendMail(mailOptions, function (err) {
+    if (err) {
+      logger.error(err)
+      throw err
     }
 
-    Mailer.sendMail(mailOptions, function (err) {
-      if (err) {
-        logger.error(err)
-        throw err
-      }
-
-      logger.debug(`Sent [${emails.length}] emails.`)
-    })
-  }
+    logger.debug(`Sent [${emails.length}] emails.`)
+  })
 }
 
 const createNotification = async ticket => {
